@@ -9,6 +9,8 @@ scripts to use for ML projects EDA
 <div align="justify">
   This is a Python script enhancing the exploratory data analysis for machine learning projects. It returns the types of columns within the dataframe, allowing to either adjust preprocessing methods for various types or fix the type if it is wrong.
 
+  The IPython notebook includes use case demos of scripts in this folder just for reference
+
 </div>
 
 <div align="center">
@@ -35,7 +37,7 @@ To use it, you need to complete the following steps:
 ### 📁 Clone this repository
 
    ```
-   git clone https://github.com/ambiernat/ml_eda.git
+   git clone https://github.com/ambiernat/visualisations_scripts.git
    ```
 
 <br>
@@ -57,7 +59,7 @@ To use it, you need to complete the following steps:
 - Run the chosen script 🚀 (depending on which script you want to use!) through:
 
    ```
-   !python /content/ml_eda/script_name.py
+   !python /content/visualisations_scripts/script_name.py
    ```
 
 - Follow the instructions on the screen
