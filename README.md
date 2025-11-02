@@ -37,7 +37,7 @@ To use it, you need to complete the following steps:
 ### 📁 Clone this repository
 
    ```
-   git clone https://github.com/ambiernat/visualisations_scripts.git
+   !git clone https://github.com/ambiernat/visualisations_scripts.git
    ```
 
 <br>
@@ -45,7 +45,7 @@ To use it, you need to complete the following steps:
 ### 📦 Install dependencies
    
    ```
-   pip install -r requirements.txt
+   !pip install -r requirements.txt
    ```
 
 
