@@ -16,12 +16,18 @@ import os
 #
 
 # inputs
-print("Make sure the output of trainer.predict() is saved as preds and the tokenised dataset as tokenized_datasets as tokenized_datasets")
-preds_inp = preds
-tokenized_datasets_inp = tokenized_datasets
+import joblib
+import argparse
 
-# preds_inp = input("Paste the name of the predictions table - trainer.predict() output").strip()
-# tokenized_datasets_inp = input("Paste the name of tokenized dataset").strip()
+# Parse command-line arguments for file paths
+parser = argparse.ArgumentParser(description="Generate side-by-side bar plots for actual vs predicted labels.")
+parser.add_argument("--preds_path", type=str, required=True, help="Path to the saved PredictionOutput (pickle file).")
+parser.add_argument("--tokenized_path", type=str, required=True, help="Path to the saved tokenized dataset (pickle file).")
+args = parser.parse_args()
+
+# Load objects
+preds_inp = joblib.load(args.preds_path)
+tokenized_datasets_inp = joblib.load(args.tokenized_path)
 
 
 # Create an EDA folder if it doesn't exist
