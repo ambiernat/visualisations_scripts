@@ -95,13 +95,9 @@ all_counts()
 file_name = 'CONFUSION MATRIX.png'
 eda_folder_path = os.path.join(os.getcwd(), 'EDA')
 
-all_counts()
-#plt.show()
-
 file_path = os.path.join(eda_folder_path, file_name)
 #with open(file_path, 'w', encoding = 'utf-8-sig') as f:
 plt.savefig(file_path)
 
-plt.show()
 text_to_display = 'File name '+file_name[:-4] +'. '+'This is also saved in the EDA folder'
 print(text_to_display)
