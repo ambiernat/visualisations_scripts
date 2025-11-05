@@ -57,7 +57,7 @@ def create_eda_folder():
 
 
 
-def plot_combined(cm_base, cm_proposed, df_report_base, df_report_proposed):
+def plot_combined(cm_base, cm_proposed, df_report_base, df_report_proposed, label_names_base, label_names_proposed):
 
   # Create side-by-side subplots
   fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(14, 6))
@@ -68,8 +68,8 @@ def plot_combined(cm_base, cm_proposed, df_report_base, df_report_proposed):
   axs[0][0].set_title("Base Model: Confusion Matrix (Counts)")
   axs[0][0].set_xlabel("Predicted Label")
   axs[0][0].set_ylabel("True Label")
-  axs[0][0].set_xticklabels(label_names, rotation=45)
-  axs[0][0].set_yticklabels(label_names, rotation=0)
+  axs[0][0].set_xticklabels(label_names_base, rotation=45)
+  axs[0][0].set_yticklabels(label_names_base, rotation=0)
 
   # 2️⃣ Base Case Scenario: Per-Class F1 scores
   sns.barplot(
@@ -89,8 +89,8 @@ def plot_combined(cm_base, cm_proposed, df_report_base, df_report_proposed):
   axs[1][0].set_title("Proposed Model: Confusion Matrix (Counts)")
   axs[1][0].set_xlabel("Predicted Label")
   axs[1][0].set_ylabel("True Label")
-  axs[1][0].set_xticklabels(label_names, rotation=45)
-  axs[1][0].set_yticklabels(label_names, rotation=0)
+  axs[1][0].set_xticklabels(label_names_proposed, rotation=45)
+  axs[1][0].set_yticklabels(label_names_proposed, rotation=0)
 
   # 2️⃣ Proposed Scenario: Per-Class F1 scores
   sns.barplot(
@@ -118,7 +118,9 @@ df_report_proposed = prepare_report(y_true_proposed, y_pred_proposed, label_name
 plot_to_save = plot_combined(cm_base = confusion_matrix(y_true_base, y_pred_base),
                              cm_proposed = confusion_matrix(y_true_proposed, y_pred_proposed), 
                              df_report_base = df_report_base, 
-                             df_report_proposed = df_report_proposed)
+                             df_report_proposed = df_report_proposed, 
+                             label_names_base = label_names_base, 
+                            label_names_proposed = label_names_proposed)
 
 file_name = 'Confusion_Matrix_and_F1.png'
 eda_folder_path = os.path.join(os.getcwd(), 'EDA')
