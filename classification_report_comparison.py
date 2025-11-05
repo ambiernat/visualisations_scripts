@@ -25,7 +25,7 @@ import argparse
 # Parse command-line arguments for file paths
 parser = argparse.ArgumentParser(description="Generate side-by-side bar plots for actual vs predicted labels.")
 parser.add_argument("--preds_path", type=str, required=True, help="Path to the saved PredictionOutput (pickle file).")
-#parser.add_argument("--preds_peft_path", type=str, required=True, help="Path to the saved tokenized dataset (pickle file).")
+parser.add_argument("--preds_peft_path", type=str, required=True, help="Path to the saved tokenized dataset (pickle file).")
 args = parser.parse_args()
 
 # Load objects
