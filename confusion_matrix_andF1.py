@@ -17,7 +17,7 @@ parser.add_argument("--preds_proposed_path", type=str, required=True, help="Path
 args = parser.parse_args()
 
 # Load objects
-preds_base_inp = joblib.load(args.preds_path)
+preds_base_inp = joblib.load(args.preds_base_path)
 preds_proposed_inp = joblib.load(args.preds_proposed_path)
 
 
