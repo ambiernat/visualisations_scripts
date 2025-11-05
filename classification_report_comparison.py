@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.special import softmax
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 import ast
 import os
 
