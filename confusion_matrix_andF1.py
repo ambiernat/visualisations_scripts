@@ -125,13 +125,9 @@ plot_to_save = plot_combined(cm_base = confusion_matrix(y_true_base, y_pred_base
 file_name = 'Confusion_Matrix_and_F1.png'
 eda_folder_path = os.path.join(os.getcwd(), 'EDA')
 
-all_counts()
-#plt.show()
-
 file_path = os.path.join(eda_folder_path, file_name)
 #with open(file_path, 'w', encoding = 'utf-8-sig') as f:
 plt.savefig(file_path)
 
-plt.show()
 text_to_display = 'File name '+file_name[:-4] +'. '+'This is also saved in the EDA folder'
 print(text_to_display)
