@@ -8,12 +8,14 @@ Original file is located at
 """
 
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.special import softmax
 from sklearn.metrics import confusion_matrix
 import ast
 import os
+
 #
 
 # inputs
@@ -41,11 +43,9 @@ def create_eda_folder():
 def data_prep(preds):
 
     # probs and class assignments
-    probs = softmax(preds.predictions, axis=1)
-    predicted_classes = probs.argmax(axis=1)
 
-    y_true = pd.DataFrame(preds_inp.label_ids).reset_index().rename(columns={0: 'actual_label_ids'})['actual_label_ids']
-    y_pred = pd.DataFrame(predicted_classes).reset_index().rename(columns={0: 'predicted_class'}).sort_values(by='predicted_class')['predicted_class']
+    y_true = preds_inp.label_ids
+    y_pred = np.argmax(preds.predictions, axis=-1)
 
     nb_classes = len(set(y_true))
 
