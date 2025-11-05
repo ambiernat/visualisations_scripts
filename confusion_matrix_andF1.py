@@ -113,7 +113,9 @@ df_report_base = prepare_report(y_true_base, y_pred_base, label_names_base)
 df_report_proposed = prepare_report(y_true_proposed, y_pred_proposed, preds_proposed_inp)
 
 plot_to_save = plot_combined(cm_base = confusion_matrix(y_true_base, y_pred_base),
-                             cm_proposed = confusion_matrix(y_true_proposed, y_pred_proposed), df_report_base = df_report_base, df_report_proposed =df_report_proposed)
+                             cm_proposed = confusion_matrix(y_true_proposed, y_pred_proposed), 
+                             df_report_base = df_report_base, 
+                             df_report_proposed = df_report_proposed)
 
 file_name = 'Confusion_Matrix_and_F1.png'
 eda_folder_path = os.path.join(os.getcwd(), 'EDA')
