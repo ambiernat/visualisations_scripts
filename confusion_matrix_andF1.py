@@ -74,7 +74,7 @@ def plot_combined(cm_base, cm_proposed, df_report_base, df_report_proposed, labe
   # 2️⃣ Base Case Scenario: Per-Class F1 scores
   sns.barplot(
       x=df_report_base.index,
-      y=df_report["f1-score"],
+      y=df_report_base["f1-score"],
       palette="Set2",
       ax=axs[0][1]
   )
@@ -95,7 +95,7 @@ def plot_combined(cm_base, cm_proposed, df_report_base, df_report_proposed, labe
   # 2️⃣ Proposed Scenario: Per-Class F1 scores
   sns.barplot(
       x=df_report_proposed.index,
-      y=df_report["f1-score"],
+      y=df_report_proposed["f1-score"],
       palette="Set2",
       ax=axs[1][1]
   )
