@@ -30,7 +30,7 @@ args = parser.parse_args()
 
 # Load objects
 preds_inp = joblib.load(args.preds_path)
-preds_peft_inp = preds_inp = joblib.load(args.preds_peft_path)
+preds_peft_inp = joblib.load(args.preds_peft_path)
 
 
 # Create an EDA folder if it doesn't exist
