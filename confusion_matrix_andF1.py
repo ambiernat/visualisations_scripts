@@ -113,7 +113,7 @@ create_eda_folder()
 y_true_base, y_pred_base, label_names_base = data_prep(preds_base_inp)
 y_true_proposed, y_pred_proposed, label_names_proposed = data_prep(preds_proposed_inp)
 df_report_base = prepare_report(y_true_base, y_pred_base, label_names_base)
-df_report_proposed = prepare_report(y_true_proposed, y_pred_proposed, preds_proposed_inp)
+df_report_proposed = prepare_report(y_true_proposed, y_pred_proposed, label_names_proposed)
 
 plot_to_save = plot_combined(cm_base = confusion_matrix(y_true_base, y_pred_base),
                              cm_proposed = confusion_matrix(y_true_proposed, y_pred_proposed), 
