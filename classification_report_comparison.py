@@ -24,13 +24,13 @@ import argparse
 
 # Parse command-line arguments for file paths
 parser = argparse.ArgumentParser(description="Generate side-by-side bar plots for actual vs predicted labels.")
-parser.add_argument("--preds_path", type=str, required=True, help="Path to the saved PredictionOutput (pickle file).")
-parser.add_argument("--preds_peft_path", type=str, required=True, help="Path to the saved tokenized dataset (pickle file).")
+parser.add_argument("--preds_base_path", type=str, required=True, help="Path to the saved PredictionOutput (pickle file).")
+parser.add_argument("--preds_proposed_path", type=str, required=True, help="Path to the saved tokenized dataset (pickle file).")
 args = parser.parse_args()
 
 # Load objects
-preds_inp = joblib.load(args.preds_path)
-preds_peft_inp = joblib.load(args.preds_peft_path)
+preds_inp = joblib.load(args.preds_base_path)
+preds_proposed_inp = joblib.load(args.preds_proposed_path)
 
 
 # Create an EDA folder if it doesn't exist
@@ -91,8 +91,8 @@ def combine_plots():
   axs[0].set_title("Classification Report for the Base Model")
 
   # Plot 2: Report for the PEFT Model
-  render_mpl_table(report(preds_peft_inp), header_columns=0, col_width=2.0, ax=axs[1])
-  axs[1].set_title("Classification Report for the PEFT Model")
+  render_mpl_table(report(preds_proposed_inp), header_columns=0, col_width=2.0, ax=axs[1])
+  axs[1].set_title("Classification Report for the Proposed Model")
 
 
   # Adjust layout
@@ -104,12 +104,9 @@ file_name = 'classification_report_comparison.png'
 eda_folder_path = os.path.join(os.getcwd(), 'EDA')
 
 
-#plt.show()
-
 file_path = os.path.join(eda_folder_path, file_name)
 #with open(file_path, 'w', encoding = 'utf-8-sig') as f:
 plt.savefig(file_path)
 
-plt.show()
 text_to_display = 'File name '+file_name[:-4] +'. '+'This is also saved in the EDA folder'
 print(text_to_display)
