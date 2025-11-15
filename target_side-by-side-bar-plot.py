@@ -47,7 +47,7 @@ def bar_plots(preds, tokenized_datasets):
 
     #intermediate calcs
     df_temp1 = pd.merge(pd.DataFrame(preds.label_ids).reset_index().rename(columns={0: 'actual_label_ids'}),
-                  tokenized_datasets["test"].to_pandas()['text'].reset_index(), right_on='index', left_on= 'index')
+                  tokenized_datasets.to_pandas()['text'].reset_index(), right_on='index', left_on= 'index')
     df_temp1 = pd.merge(df_temp1, pd.DataFrame(predicted_classes).reset_index().rename(columns={0: 'predicted_class'}), right_on='index', left_on= 'index')
 
 
@@ -102,7 +102,7 @@ def bar_plots(preds, tokenized_datasets):
 
 plot_to_save = bar_plots(preds=preds_inp, tokenized_datasets = tokenized_datasets_inp)
 create_eda_folder()
-file_name = 'TEST TARGET CLASS: side-by-side (grouped) bar chart.png'
+file_name = 'HOLDOUT TARGET CLASS: side-by-side (grouped) bar chart.png'
 eda_folder_path = os.path.join(os.getcwd(), 'EDA')
 
 file_path = os.path.join(eda_folder_path, file_name)
